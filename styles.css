@@ -1,0 +1,327 @@
+/* Importing Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #1a1a1d;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #ff7b00;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Animation for showing content */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.7s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header Section */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+header ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+header ul li {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+header ul li.active a {
+    color: #ff7b00; /* Changed color for the currently selected menu item */
+    font-weight: bold; /* Keep bold font for visibility */
+    text-shadow: 0 0 5px rgba(255, 123, 0, 0.7); /* Optional text shadow */
+}
+
+header ul li:hover {
+    background-color: #ff7b00;
+    transform: translateY(-3px);
+}
+
+header ul li a {
+    font-size: 1.5rem; /* Adjusted font size */
+    color: #fff; /* Default color for menu items */
+    padding: 10px 20px;
+}
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background: url('welcome-bg.jpg') no-repeat center center/cover;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 6rem; /* Larger font size for the hero heading */
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+    font-size: 3rem; /* Increase paragraph font size */
+    margin-top: 1rem;
+}
+
+/* Section Content */
+.section-content {
+    padding: 100px 20px; /* Add padding to the sections */
+}
+
+.section-title {
+    font-size: 4rem; /* Increased font size for section titles */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    align-items: center; /* Align profile and content to the center */
+    justify-content: flex-start;
+    gap: 40px; /* Space between profile and content */
+    padding: 50px;
+    height: 100vh; /* Full height of the viewport */
+}
+
+/* Profile Picture (Full Image Displayed) */
+.profile-pic {
+    width: 40%; /* Cover 40% of the left side */
+    height: 100%; /* Full height */
+    object-fit: contain; /* Ensure full image is shown without cropping */
+    flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+/* About Details (Content on Right) */
+.about-details {
+    font-size: 2rem; /* Large font size for content */
+    line-height: 1.8;
+    width: 60%; /* Content covers the remaining 60% */
+}
+
+/* Skills Section */
+.skill-categories {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.skill-button {
+    background-color: #ff7b00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.5rem; /* Larger button font size */
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s;
+}
+
+.skill-button:hover {
+    background-color: #e66e00; /* Darker on hover */
+}
+
+.skills-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill-category {
+    margin-top: 20px;
+}
+
+.skill-category ul {
+    list-style-type: none;
+}
+
+.skill-category li {
+    font-size: 1.2rem; /* Adjusted skill list font size */
+}
+
+/* Projects Section */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px; /* Fixed width for project cards */
+    text-align: center;
+}
+
+.project-card h3 {
+    font-size: 1.8rem; /* Project title font size */
+}
+
+.project-card img {
+    width: 100%; /* Responsive image size */
+    border-radius: 10px;
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form label {
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 1.2rem; /* Adjusted input font size */
+}
+
+.contact-form button {
+    background-color: #ff7b00;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem; /* Adjusted button font size */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+    background-color: #e66e00; /* Darker on hover */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+/* Chatbot Styles */
+.chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    background-color: #333; /* Darker background */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+}
+
+.chat-header {
+    background-color: #ff7b00; /* Bright header for contrast */
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.chat-box {
+    height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #1a1a1d; /* Darker chat background */
+}
+
+.chat-box p {
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.user-message {
+    background-color: #ff7b00; /* User message color */
+    color: white;
+    text-align: right;
+}
+
+.bot-message {
+    background-color: #4CAF50; /* Bot message color */
+    color: white;
+    text-align: left;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    background-color: #333;
+    color: white;
+}
+
+.chat-input button {
+    padding: 8px 12px;
+    background-color: #ff7b00;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #e66e00;
+}
+

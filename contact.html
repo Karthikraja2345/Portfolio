@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact Me | Karthik Raja</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212; /* Dark theme background */
+            color: #f0f0f0; /* Light text color */
+        }
+
+        .section-content {
+            padding: 50px;
+            background-color: #1c1c1c; /* Dark section background */
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #f0f0f0; /* Ensure title stands out */
+        }
+
+        /* Contact form container */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #2c2c2c; /* Form container color */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-container input,
+        .contact-container textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #333; /* Input background */
+            color: #f0f0f0; /* Input text color */
+            border: 1px solid #444; /* Subtle border */
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-container textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .contact-container .btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-container .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Success or error message styles */
+        .success-message, .error-message {
+            display: none;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .success-message {
+            background-color: #28a745;
+            color: #fff;
+            border: 1px solid #28a745;
+        }
+
+        .error-message {
+            background-color: #dc3545;
+            color: #fff;
+            border: 1px solid #dc3545;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li class="active"><a href="contact.html">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="contact" class="section-content fade-in">
+        <h2 class="section-title">Contact Me</h2>
+        
+        <div class="contact-container">
+            <form id="contact-form" action="https://formspree.io/f/xanynooy" method="POST">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+
+            <!-- Success and error message containers -->
+            <div id="success-message" class="success-message">Your message has been sent successfully!</div>
+            <div id="error-message" class="error-message">There was an error sending your message. Please try again.</div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Karthik Raja. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Handling form submission with Formspree and showing success/error messages
+        const form = document.getElementById('contact-form');
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(form);
+
+            // Send the form data to Formspree
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    successMessage.style.display = 'block';
+                    errorMessage.style.display = 'none';
+                    form.reset(); // Clear the form
+                } else {
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'block';
+                }
+            }).catch(() => {
+                successMessage.style.display = 'none';
+                errorMessage.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
